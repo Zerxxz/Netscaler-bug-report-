@@ -3,7 +3,7 @@
 **Target:** https://lb1.iris.cgophobb.com & https://av1.iris.cgophobb.com  
 **Program:** NetScaler Public Program (HackerOne)  
 **Date:** May 9, 2026  
-**Severity:** CRITICAL (CVSS 9.1)  
+**Severity:** CRITICAL (CVSS 4.0)  
 **Reward Potential:** $5,000 - $10,000
 
 ---
@@ -178,7 +178,7 @@ This vulnerability allows any attacker who can intercept HTTP traffic (via netwo
        5. Account takeover achieved
 
      [✓] NSC_BODY Credential Exposure CONFIRMED
-     [✓] SEVERITY: CRITICAL (CVSS 9.1)
+     [✓] SEVERITY: CRITICAL (CVSS 4.0)
      ```
 
   1. **Run standalone decoder:**
@@ -433,8 +433,8 @@ The `NSC_TASS` cookie contains redirectable URLs enabling SSRF attacks against i
 | Privileges Required | None | Unauthenticated attack |
 | User Interaction | None | Automatic cookie setting |
 
-**CVSS 3.1 Vector:** `AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H`  
-**CVSS Score:** 9.1 (CRITICAL)
+**CVSS 4.0 Vector:** `CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:H/VA:H/SC:H/SI:H/SA:H`  
+**CVSS 4.0 Score:** 10.0 (CRITICAL)
 
 ---
 
