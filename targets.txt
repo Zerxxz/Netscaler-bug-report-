@@ -1,0 +1,64 @@
+============================================================
+NETSCALER AAA BUG BOUNTY — TARGET CONFIGURATION
+============================================================
+
+🎯 PRIMARY TARGET (Application Server):
+   https://lb1.iris.cgophobb.com
+
+🔐 AUTHENTICATION SERVER:
+   https://av1.iris.cgophobb.com
+
+📜 TEST CREDENTIALS (10,000 accounts):
+   Username: testuser1 through testuser10000
+   Format: testuser[N] : PASSWORD
+
+🔑 SUPPORTING FILES (in scope attachments):
+   - cgophobb.corp_CA.cer
+   - client1.cgophobb.corp_import_password_1234.pfx
+   - Gateway_BugBounty_Demo.mp4
+
+============================================================
+SAMPLE CREDENTIALS (first 20):
+============================================================
+testuser1  : nLMOD?7y+<O>Pt
+testuser2  : (*eYpOzS8avFh4!
+testuser3  : ^QA%UZz2r
+testuser4  : 8Iji5_>2h_m
+testuser5  : +7iaSnsB8Li?W@
+testuser6  : R&o%d9eG+
+testuser7  : P7Z6U@eeT_
+testuser8  : y*Xl0#RplP_-3l
+testuser9  : #Ssct+GT08DZ
+testuser10 : UX6kPt9)5S@
+testuser11 : d$dW0wP6!sj
+testuser12 : <YaBeWo9j?%S(3O
+testuser13 : bp00R#v0-_Cm
+testuser14 : 3!uzj*4V
+testuser15 : ?#v2a@0cd_5hR>E
+testuser16 : #NAME?
+testuser17 : m!+5Y)&05f
+testuser18 : d2G#qCE6LCmT@Sk
+testuser19 : #(MFeN6j04
+testuser20 : zrEl)xg?0gkF8t0
+
+============================================================
+ENDPOINTS TO TEST:
+============================================================
+--- PRE-AUTH ---
+GET /                         (Login page, version detection)
+GET /cgi-bin/                 (CGI directory - RCE attack surface)
+GET /vpn/                     (VPN portal)
+GET /epa/                     (Auth bypass - CVE-2022-27510)
+GET /hamaxe/                  (API gateway - SQLi/XXE)
+GET /menu/ssps/rate           (Session policy - CVE-2022-27510)
+GET /oauth/idprespond         (Memory leak - CVE-2023-4966)
+GET /favicon.ico             (Version disclosure)
+GET /cgi/logout               (Memory leak - CVE-2023-4966)
+GET /cgi/set客体の             (RCE - CVE-2023-3519)
+
+--- POST-AUTH (with testuser credentials) ---
+POST /login                   (LDAP auth flow)
+POST /hamaxe/                 (API gateway)
+GET /api/users/[ID]           (IDOR enumeration)
+GET /download?f=../../../..   (Path traversal)
+POST /saml                    (XXE test)
